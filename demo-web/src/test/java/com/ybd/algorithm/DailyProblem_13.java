@@ -2,6 +2,9 @@ package com.ybd.algorithm;
 
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  Good morning! Here's your coding interview problem for today.
@@ -21,8 +24,35 @@ public class DailyProblem_13 {
 
     @Test
     public void test1() {
-        System.out.println("test1");
+        String s = "abcba";
+        String longestString = "";
+        String subString = "";
+        for (int i = 0;i < s.length() ; i++) {
+            for (int j = i + 1;j < s.length() ; j++) {
+                subString = s.substring(i,j);
+                if (haveKDiffStr(subString,2) && subString.length() > longestString.length()) {
+                    longestString = subString;
+                }
+            }
+        }
+        System.out.println("test1 = " + longestString);
     }
+
+    private boolean haveKDiffStr(String str,int k) {
+        Set<Character> characterSet = new HashSet<>();
+        if (str.length() >= k) {
+            char[] chars = str.toCharArray();
+            for (int i = 0;i < chars.length ; i++) {
+                characterSet.add(chars[i]);
+            }
+            if (characterSet.size() == k) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
 
 
