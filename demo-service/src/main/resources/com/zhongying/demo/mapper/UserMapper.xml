@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhongying.demo.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.zhongying.demo.model.User">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="user_code" property="userCode" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="TINYINT"/>
+        <result column="open_account_status" property="openAccountStatus" jdbcType="TINYINT"/>
+        <result column="platform" property="platform" jdbcType="CHAR"/>
+        <result column="client" property="client" jdbcType="TINYINT"/>
+        <result column="version" property="version" jdbcType="VARCHAR"/>
+        <result column="channal" property="channal" jdbcType="INTEGER"/>
+        <result column="register_code" property="registerCode" jdbcType="VARCHAR"/>
+        <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP"/>
+        <result column="last_login_ip" property="lastLoginIp" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, user_code, mobile, password, status, open_account_status, platform,
+    client, version, channal, register_code, last_login_time, last_login_ip, create_time, 
+    update_time
+  </sql>
+
+    <select id="findUsersByParams" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM user
+        WHERE 1 =1
+        <if test="mobile!=null and mobile!=''">
+            AND mobile = #{mobile}
+        </if>
+        <if test="platform!=null and platform!=''">
+            AND platform = #{platform}
+        </if>
+    </select>
+
+    <select id="batchFindUserByParams" resultType="java.util.Map">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM user
+        WHERE
+        <foreach collection="list" index="index" item="item" separator=" OR ">
+            (mobile=#{item.mobile} AND platform=#{item.platform})
+        </foreach>
+    </select>
+
+    <select id="byRegisterNumber" parameterType="java.lang.String" resultType="java.lang.Integer">
+    SELECT count(1) from user u WHERE platform in ("HLW","ZZT")
+  </select>
+
+    <select id="queryUserInfo" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT
+        id AS id ,
+        user_code AS userCode,
+        mobile AS mobile,
+        open_account_status AS openAccountStatus,
+        status AS status,
+        platform AS platform
+        FROM user
+        WHERE
+        open_account_status = 3
+        <if test="status!=null and status!=''">
+            AND status = #{status}
+        </if>
+        <if test="mobile!=null and mobile!=''">
+            AND mobile = #{mobile}
+        </if>
+        <if test="platform!=null and platform!=''">
+            AND platform = #{platform}
+        </if>
+        <if test="userCode!=null and userCode!=''">
+            AND user_code = #{userCode}
+        </if>
+        <if test=" startDate !=null and startDate !='' ">
+            AND create_time <![CDATA[>=]]> #{startDate}
+        </if>
+        <if test=" endDate !=null and endDate !='' ">
+            AND create_time <![CDATA[<=]]> #{endDate}
+        </if>
+        <if test="offset != null and limit != null">
+            order by create_time desc
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="queryUserInfoCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+        SELECT
+        count(1) AS total
+        FROM user
+        WHERE
+        open_account_status = 3
+        <if test="status!=null and status!=''">
+            AND status = #{status}
+        </if>
+        <if test="mobile!=null and mobile!=''">
+            AND mobile = #{mobile}
+        </if>
+        <if test="platform!=null and platform!=''">
+            AND platform = #{platform}
+        </if>
+        <if test="userCode!=null and userCode!=''">
+            AND user_code = #{userCode}
+        </if>
+        <if test=" startDate !=null and startDate !='' ">
+            AND create_time <![CDATA[>=]]> #{startDate}
+        </if>
+        <if test=" endDate !=null and endDate !='' ">
+            AND create_time <![CDATA[<=]]> #{endDate}
+        </if>
+    </select>
+
+    <select id="queryUserInfoAll" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT
+        id AS id ,
+        user_code AS userCode,
+        mobile AS mobile,
+        open_account_status AS openAccountStatus,
+        status AS status,
+        platform AS platform,
+        register_code AS inviteCode
+        FROM user
+        WHERE
+        1=1
+        <if test="status!=null and status!=''">
+            AND status = #{status}
+        </if>
+        <if test="mobile!=null and mobile!=''">
+            AND mobile = #{mobile}
+        </if>
+        <if test="platform!=null and platform!=''">
+            AND platform = #{platform}
+        </if>
+        <if test="userCode!=null and userCode!=''">
+            AND user_code = #{userCode}
+        </if>
+        <if test=" startDate !=null and startDate !='' ">
+            AND create_time <![CDATA[>=]]> #{startDate}
+        </if>
+        <if test=" endDate !=null and endDate !='' ">
+            AND create_time <![CDATA[<=]]> #{endDate}
+        </if>
+        <if test=" inviteCode !=null and inviteCode!=''">
+            AND register_code = #{inviteCode}
+        </if>
+        <if test="offset != null and limit != null">
+            order by create_time desc
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+
+    <select id="queryUserInfoCountAll" parameterType="java.util.Map" resultType="java.lang.Integer">
+        SELECT
+        count(1) AS total
+        FROM user
+        WHERE
+        1=1
+        <if test="status!=null and status!=''">
+            AND status = #{status}
+        </if>
+        <if test="mobile!=null and mobile!=''">
+            AND mobile = #{mobile}
+        </if>
+        <if test="platform!=null and platform!=''">
+            AND platform = #{platform}
+        </if>
+        <if test="userCode!=null and userCode!=''">
+            AND user_code = #{userCode}
+        </if>
+        <if test=" startDate !=null and startDate !='' ">
+            AND create_time <![CDATA[>=]]> #{startDate}
+        </if>
+        <if test=" endDate !=null and endDate !='' ">
+            AND create_time <![CDATA[<=]]> #{endDate}
+        </if>
+        <if test=" inviteCode !=null  and inviteCode!=''">
+            AND register_code = #{inviteCode}
+        </if>
+    </select>
+
+    <select id="byUserStatus" resultType="java.lang.Integer" parameterType="java.util.Map">
+        SELECT u.`open_account_status` AS status from user u where u.user_code = #{userCode}
+    </select>
+
+    <update id="updateByUserCode" parameterType="java.util.Map">
+         update `user` SET platform = #{platform} where user_code =  #{userCode}
+    </update>
+
+    <select id="queryUserIsExists" parameterType="java.util.Map" resultType="java.util.Map">
+        SELECT user_code as userCode,open_account_status as openAccountStatus FROM `user` WHERE 1=1
+        <if test="mobile!=null and mobile!=''">
+            AND mobile = #{mobile}
+        </if>
+        <if test="platform!=null and platform!=''">
+            AND platform = #{platform}
+        </if>
+    </select>
+
+    <update id="updateUserById" parameterType="com.zhongying.demo.model.User">
+        update user
+        <set>
+            <if test="null != userCode"> user_code = #{ userCode},</if>
+            <if test="null != mobile"> mobile = #{ mobile},</if>
+            <if test="null != password"> password = #{ password },</if>
+            <if test="null != status"> status = #{ status },</if>
+            <if test="null != openAccountStatus"> open_account_status = #{ openAccountStatus },</if>
+            <if test="null != platform"> platform = #{ platform },</if>
+            <if test="null != client"> client = #{ client },</if>
+            <if test="null != version"> version = #{ version },</if>
+            <if test="null != channal"> channal = #{ channal },</if>
+            <if test="null != registerCode"> register_code = #{ registerCode },</if>
+            <if test="null != registerIp"> register_ip = #{ registerIp },</if>
+            <if test="null != lastLoginTime"> last_login_time = #{ lastLoginTime },</if>
+            <if test="null != lastLoginIp"> last_login_ip = #{ lastLoginIp },</if>
+            <if test="null != createTime"> create_time = #{ createTime },</if>
+            <if test="null != updateTime"> update_time = #{ updateTime },</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <select id="getByCondition" parameterType="com.zhongying.demo.model.User" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List"/>
+        from user
+        <where>
+            <if test="null != userCode"> and user_code=#{userCode,jdbcType=VARCHAR}</if>
+            <if test="null != mobile"> and mobile=#{mobile,jdbcType=VARCHAR}</if>
+            <if test="null != password"> and password=#{password,jdbcType=VARCHAR}</if>
+            <if test="null != gesturePassword"> and gesture_password=#{gesturePassword,jdbcType=INTEGER}</if>
+            <if test="null != type"> and type=#{type,jdbcType=TINYINT}</if>
+            <if test="null != status"> and status=#{status,jdbcType=TINYINT}</if>
+            <if test="null != openAccountStatus"> and open_account_status=#{openAccountStatus,jdbcType=TINYINT}</if>
+            <if test="null != platform"> and platform=#{platform,jdbcType=CHAR}</if>
+            <if test="null != client"> and client=#{client,jdbcType=TINYINT}</if>
+            <if test="null != version"> and version=#{version,jdbcType=VARCHAR}</if>
+            <if test="null != channal"> and channal=#{channal,jdbcType=INTEGER}</if>
+            <if test="null != registerCode"> and register_code=#{registerCode,jdbcType=VARCHAR}</if>
+            <if test="null != registerIp"> and register_ip=#{registerIp,jdbcType=INTEGER}</if>
+            <if test="null != lastLoginTime"> and last_login_time=#{lastLoginTime,jdbcType=TIMESTAMP}</if>
+            <if test="null != lastLoginIp"> and last_login_ip=#{lastLoginIp,jdbcType=INTEGER}</if>
+            <if test="null != createTime"> and create_time=#{createTime,jdbcType=TIMESTAMP}</if>
+            <if test="null != updateTime"> and update_time=#{updateTime,jdbcType=TIMESTAMP}</if>
+            <if test="null != id"> and id=#{id,jdbcType=BIGINT}</if>
+        </where>
+    </select>
+
+
+    <update id="update" parameterType="com.zhongying.demo.model.User">
+        update user
+        <set>
+            <if test="null != userCode"> user_code = #{ userCode ,jdbcType = VARCHAR},</if>
+            <if test="null != mobile"> mobile = #{ mobile ,jdbcType = VARCHAR},</if>
+            <if test="null != password"> password = #{ password ,jdbcType = VARCHAR},</if>
+            <if test="null != gesturePassword"> gesture_password = #{ gesturePassword ,jdbcType = INTEGER},</if>
+            <if test="null != type"> type = #{ type ,jdbcType = TINYINT},</if>
+            <if test="null != status"> status = #{ status ,jdbcType = TINYINT},</if>
+            <if test="null != openAccountStatus"> open_account_status = #{ openAccountStatus ,jdbcType = TINYINT},</if>
+            <if test="null != platform"> platform = #{ platform ,jdbcType = CHAR},</if>
+            <if test="null != client"> client = #{ client ,jdbcType = TINYINT},</if>
+            <if test="null != version"> version = #{ version ,jdbcType = VARCHAR},</if>
+            <if test="null != channal"> channal = #{ channal ,jdbcType = INTEGER},</if>
+            <if test="null != registerCode"> register_code = #{ registerCode ,jdbcType = VARCHAR},</if>
+            <if test="null != registerIp"> register_ip = #{ registerIp ,jdbcType = INTEGER},</if>
+            <if test="null != lastLoginTime"> last_login_time = #{ lastLoginTime ,jdbcType = TIMESTAMP},</if>
+            <if test="null != lastLoginIp"> last_login_ip = #{ lastLoginIp ,jdbcType = INTEGER},</if>
+            <if test="null != createTime"> create_time = #{ createTime ,jdbcType = TIMESTAMP},</if>
+            <if test="null != updateTime"> update_time = #{ updateTime ,jdbcType = TIMESTAMP},</if>
+            <if test="null != id"> id = #{ id ,jdbcType = BIGINT}</if>
+        </set>
+        where ID = #{id,jdbcType=NUMERIC}
+    </update>
+
+
+    <select id="selectByUserCodes" resultType="java.util.Map">
+        SELECT
+        user_code userCode,
+        mobile mobile
+        from `user`
+        where user_code in
+        <foreach item="item" collection="userCodes" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+</mapper>
