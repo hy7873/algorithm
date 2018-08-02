@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.sys.parent</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>demo-algorithm</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
 
