@@ -30,7 +30,22 @@ public class DailyProblem_23 {
     			{'f', 'f', 'f', 'f'},
     			{'f', 'f', 'f', 'f'}
     			};
-    	System.out.println(JacksonUtil.bean2Json(getNextPoints(new Point(3, 0), chars)));
+    	Point startPoint  =  new Point(3,0);
+    	Point endPoint = new Point(0,0);
+    	int maxSteps = 1000;
+
+		for (int i = 0 ; i < maxSteps ; i++) {
+			List<Point> points = getNextPoints(startPoint,chars);
+			Point newPoint = getMinDistancePoint(points,endPoint,startPoint);
+			startPoint = newPoint;
+			if (startPoint.getX() == endPoint.getX() && startPoint.getY() == endPoint.getY()) {
+				System.out.println(i + "steps");
+				break;
+			}
+			if (i == maxSteps - 1) {
+				System.out.println("no found way");
+			}
+		}
     }
     
     private List<Point> getNextPoints(Point p,char[][] chars) {
@@ -64,6 +79,33 @@ public class DailyProblem_23 {
     	}
     	return points;
     }
+
+
+	/**
+	 * 距离p点最近的一个点
+	 * @param points
+	 * @param p
+	 * @return
+	 */
+	private Point getMinDistancePoint(List<Point> points,Point p,Point lastPoint) {
+    	Point px = null;
+    	double distance = Double.MAX_VALUE;
+		for (int i = 0;i < points.size();i++) {
+			double d = Math.sqrt(Math.pow(points.get(i).getX() - p.getX(),2) + Math.pow(points.get(i).getY() - p.getY(),2));
+			if (points.get(i).getX() == lastPoint.getX() && points.get(i).getY() == lastPoint.getY()) {
+			    continue;
+            }
+            if ((int)d == 1) {
+			    return lastPoint;
+            }
+			if (d <= distance) {
+				px = points.get(i);
+				distance = d;
+			}
+		}
+		return px;
+
+	}
     
     
     @Test

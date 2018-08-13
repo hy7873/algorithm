@@ -1,6 +1,7 @@
 package com.ybd.algorithm;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
@@ -16,28 +17,10 @@ public class DailyProblem_21 {
 
     @Test
     public void test1() {
-    	Point point1 = new Point(30,75);
-    	Point point2 = new Point(0,50);
-    	Point point3 = new Point(60,150);
-        Point point4 = new Point(0,20);
-    	List<Point> list = new ArrayList<>();
-    	list.add(point1);list.add(point2);list.add(point3);list.add(point4);
-		int roomCnt = 1;
-		Point p1,p2;
-    	for (int i = 1; i < list.size(); i++) {
-    	    boolean needNewRoom = true;
-    		p2 = list.get(i);
-			for (int j = i - 1; j >= 0;j--) {
-				p1 = list.get(j);
-				if (!isMatchCrack(p1,p2)) {
-					needNewRoom = false;
-				}
-			}
-			if (needNewRoom) {
-			    roomCnt++;
-            }
-		}
-    	System.out.println("roomCnt = " + roomCnt);
+    	List<Point> list = Arrays.asList(new Point(30,75),new Point(0,50),
+                new Point(0,40),
+                new Point(60,150),new Point(0,20));
+    	System.out.println("roomCnt = " + getRooms(list));
     }
     
     class Point {
@@ -72,6 +55,25 @@ public class DailyProblem_21 {
 			return "(" + x +"," + y + ")";
 		}
     	
+    }
+
+    private int getRooms(List<Point> list) {
+        int roomCnt = 1;
+        Point p1,p2;
+        for (int i = 1; i < list.size(); i++) {
+            boolean needNewRoom = true;
+            p2 = list.get(i);
+            for (int j = i - 1; j >= 0;j--) {
+                p1 = list.get(j);
+                if (!isMatchCrack(p1,p2)) {
+                    needNewRoom = false;
+                }
+            }
+            if (needNewRoom) {
+                roomCnt++;
+            }
+        }
+        return roomCnt;
     }
 
     private boolean isMatchCrack(Point p1,Point p2) {
