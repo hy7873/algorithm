@@ -33,13 +33,16 @@ public class DailyProblem_23 {
     	Point startPoint  =  new Point(3,0);
     	Point endPoint = new Point(0,0);
     	int maxSteps = 1000;
+    	List<Point> stepPoints = new ArrayList<>();
+    	stepPoints.add(startPoint);
 
 		for (int i = 0 ; i < maxSteps ; i++) {
 			List<Point> points = getNextPoints(startPoint,chars);
-			Point newPoint = getMinDistancePoint(points,endPoint,startPoint);
+			Point newPoint = getMinDistancePoint(points,endPoint,stepPoints);
 			startPoint = newPoint;
 			if (startPoint.getX() == endPoint.getX() && startPoint.getY() == endPoint.getY()) {
-				System.out.println(i + "steps");
+				System.out.println(i + 1 + " steps");
+				System.out.println("步骤：" + JacksonUtil.bean2Json(stepPoints));
 				break;
 			}
 			if (i == maxSteps - 1) {
@@ -87,32 +90,29 @@ public class DailyProblem_23 {
 	 * @param p
 	 * @return
 	 */
-	private Point getMinDistancePoint(List<Point> points,Point p,Point lastPoint) {
+	private Point getMinDistancePoint(List<Point> points,Point p,List<Point> stepPoints) {
     	Point px = null;
     	double distance = Double.MAX_VALUE;
 		for (int i = 0;i < points.size();i++) {
 			double d = Math.sqrt(Math.pow(points.get(i).getX() - p.getX(),2) + Math.pow(points.get(i).getY() - p.getY(),2));
-			if (points.get(i).getX() == lastPoint.getX() && points.get(i).getY() == lastPoint.getY()) {
-			    continue;
-            }
-            if ((int)d == 1) {
-			    return lastPoint;
-            }
+			if (isPointInSteps(stepPoints, points.get(i))) {
+				continue;
+			}
 			if (d <= distance) {
 				px = points.get(i);
 				distance = d;
+				stepPoints.add(px);
 			}
 		}
 		return px;
-
 	}
-    
-    
-    @Test
-    public void test() {
-    	Point p = new Point(1,2);
-    	System.out.println(p.x + " " + p.y);
-    }
-    
-
+	
+	private boolean isPointInSteps(List<Point> stepPoints,Point p) {
+		for (int i = 0; i < stepPoints.size(); i++) {
+			if (p.getX() == stepPoints.get(i).getX() && p.getY() == stepPoints.get(i).getY()) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
