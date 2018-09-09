@@ -29,7 +29,7 @@
 		<compiler.version>1.8</compiler.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- 环境变量 -->
-		<JAVA_ENV>dev</JAVA_ENV>
+		<JAVA_ENV>uat</JAVA_ENV>
 		<!-- zhongying old interface -->
 		<zhongying-interface.version>1.0-SNAPSHOT</zhongying-interface.version>
 		<!-- zhongying framework -->
