@@ -81,6 +81,13 @@
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.hy</groupId>
+			<artifactId>acms</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
 		<!-- Test : Junit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -99,10 +106,10 @@
 
 
 	<repositories>
-		<!--<repository>
+		<repository>
 			<id>nexus</id>
 			<name>nexus</name>
-			<url>http://192.168.6.75:8081/nexus/content/groups/public/</url>
+			<url>http://192.168.213.128:9090/repository/maven-public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -111,7 +118,7 @@
 				<updatePolicy>always</updatePolicy>
 				<checksumPolicy>warn</checksumPolicy>
 			</snapshots>
-		</repository>-->
+		</repository>
 	</repositories>
 
 	<build>
