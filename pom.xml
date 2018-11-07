@@ -101,7 +101,6 @@
             <version>${org.springframework.version}</version>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
 
@@ -225,6 +224,26 @@
 				</configuration>
 			</plugin>
 
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.12.v20180830</version>
+				<configuration>
+					<httpConnector>
+						<port>8080</port>
+						<host>localhost</host>
+					</httpConnector>
+					<scanIntervalSeconds>1</scanIntervalSeconds>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.eclipse.jetty.aggregate</groupId>
+						<artifactId>jetty-all</artifactId>
+						<version>9.4.12.v20180830</version>
+						<type>pom</type>
+					</dependency>
+				</dependencies>
+			</plugin>
 		</plugins>
 	</build>
 
