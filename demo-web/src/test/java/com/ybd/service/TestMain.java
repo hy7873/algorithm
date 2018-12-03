@@ -3,10 +3,13 @@ package com.ybd.service;
 import com.zhongying.demo.algorithm.sort.BubbleSort;
 import com.zhongying.demo.algorithm.sort.InsertSort;
 import com.zhongying.demo.algorithm.sort.QuickSort;
+import com.zhongying.demo.dataStructure.list.SingleLinkedList;
 import com.zhongying.demo.dataStructure.node.Node;
 import com.zhongying.demo.dataStructure.tree.BinarySortTree;
 import com.zhongying.demo.util.JacksonUtil;
 import org.junit.Test;
+
+import java.util.Arrays;
 
 /**
  * Created by Administrator on 2018/11/15.
@@ -54,6 +57,14 @@ public class TestMain {
         binarySortTree.midShow();
         binarySortTree.delete(4);
         binarySortTree.midShow();
+    }
+
+
+    @Test
+    public void test5() {
+        int[] a = {4,2,1,5,7,11,3};
+        SingleLinkedList singleLinkedList = new SingleLinkedList(a);
+        singleLinkedList.display();
     }
 
 }

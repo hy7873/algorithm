@@ -17,6 +17,19 @@ public class SingleLinkedList {
         size = 0;
     }
 
+    public SingleLinkedList(int[] a) {
+        for (int i = 0; i < a.length; i++) {
+          Node newHead = new Node(a[i]);
+          if (size == 0) {
+              head = newHead;
+          } else {
+              newHead.next = head;
+              head = newHead;
+          }
+          size++;
+        }
+    }
+
 
     private class Node {
         //节点的数据
@@ -92,6 +105,52 @@ public class SingleLinkedList {
             }
         }
         return false;
+    }
+
+    /**
+     * 反转链表
+     * @return
+     */
+    public Node reverseList() {
+        Node reverseHead = null;
+        Node current = head;
+        Node prev = null;
+        while (current != null) {
+            Node nextNode = current.next;
+            if (nextNode == null) {
+                reverseHead = current;
+            }
+            current.next = prev;
+            prev = current;
+            current = nextNode;
+        }
+        return reverseHead;
+    }
+
+    /**
+     * 显示链表
+     */
+    public void display() {
+        if (size > 0) {
+            Node node = head;
+            int tempSize = size;
+            if (tempSize == 1) {
+                System.out.print("[" + node.data + "]");
+            }
+            while (tempSize > 0) {
+                if (node.equals(head)) {
+                    System.out.print("[" + node.data + "->");
+                } if (node.next == null) {
+                    System.out.print(node.data + "]");
+                } else {
+                    System.out.print(node.data + "->");
+                }
+                node = node.next;
+                tempSize--;
+            }
+        } else {
+            System.out.print("[]");
+        }
     }
 
 }
