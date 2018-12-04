@@ -4,6 +4,7 @@ import com.zhongying.demo.algorithm.sort.BubbleSort;
 import com.zhongying.demo.algorithm.sort.InsertSort;
 import com.zhongying.demo.algorithm.sort.QuickSort;
 import com.zhongying.demo.dataStructure.list.SingleLinkedList;
+import com.zhongying.demo.dataStructure.list.TwoWayLinkedList;
 import com.zhongying.demo.dataStructure.node.Node;
 import com.zhongying.demo.dataStructure.tree.BinarySortTree;
 import com.zhongying.demo.util.JacksonUtil;
@@ -65,6 +66,13 @@ public class TestMain {
         int[] a = {4,2,1,5,7,11,3};
         SingleLinkedList singleLinkedList = new SingleLinkedList(a);
         singleLinkedList.display();
+    }
+
+    @Test
+    public void test6() {
+        int[] a = {4,2,1,5,7,11,3};
+        TwoWayLinkedList twoWayLinkedList = new TwoWayLinkedList(a);
+        twoWayLinkedList.display();
     }
 
 }
