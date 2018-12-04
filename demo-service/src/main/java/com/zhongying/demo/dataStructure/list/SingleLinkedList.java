@@ -140,7 +140,7 @@ public class SingleLinkedList {
             while (tempSize > 0) {
                 if (node.equals(head)) {
                     System.out.print("[" + node.data + "->");
-                } if (node.next == null) {
+                } else if (node.next == null) {
                     System.out.print(node.data + "]");
                 } else {
                     System.out.print(node.data + "->");
