@@ -30,7 +30,7 @@ public class SwaggerConfig {
 	}
 
 	private ApiInfo apiInfo() {
-		Contact contact = new Contact("中赢", "", "zy@zhongyinjinrong.com");
+		Contact contact = new Contact("hy", "", "zy@hy.com");
 		ApiInfo apiInfo = new ApiInfoBuilder().license("").title("  接口").description("demo").contact(contact).version("1.0").build();
 
 		return apiInfo;
