@@ -1,11 +1,10 @@
 package com.ybd.service;
 
+import com.sun.javafx.binding.StringFormatter;
+import com.zhongying.demo.util.RandomUtil;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by Administrator on 2018/2/11.
@@ -70,6 +69,23 @@ public class MainTest {
                break;
            }
        }
+    }
+
+
+
+    @Test
+    public void testRandomStr() {
+        Set<String> set = new HashSet<>();
+        String randomStr = "";
+        int duplicateCnt = 0;
+        for (int i = 0; i < 10000000; i++) {
+            randomStr = RandomUtil.getRandomStrV2(15);
+            if (set.contains(randomStr)) {
+                duplicateCnt++;
+            }
+            set.add(randomStr);
+        }
+        System.out.println(String.format("总个数%s，重复的个数%s",set.size(),duplicateCnt));
     }
 
 

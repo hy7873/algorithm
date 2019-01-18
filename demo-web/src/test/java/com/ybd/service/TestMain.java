@@ -87,7 +87,8 @@ public class TestMain {
 
     @Test
     public void test7() {
-        System.out.println(fiboFunc(80));
+        //System.out.println(fiboFunc(80));
+        System.out.println("s".length());
     }
 
 }
