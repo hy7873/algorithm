@@ -1,6 +1,5 @@
 package com.hy.demo.algorithm.dailyProblem;
 
-import org.junit.Test;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,7 +21,6 @@ import java.util.Set;
 public class DailyProblem_13 {
 
 
-    @Test
     public void test1() {
         String s = "abcba";
         String longestString = "";

@@ -1,6 +1,5 @@
 package com.hy.demo.algorithm.dailyProblem;
 
-import org.junit.Test;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,7 +13,6 @@ import java.io.FileOutputStream;
 public class DailyProblem_15 {
 
 
-    @Test
     public void test1() {
         FileInputStream fis = null;
         FileOutputStream fos = null;

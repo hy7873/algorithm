@@ -1,6 +1,5 @@
 package com.hy.demo.algorithm.dailyProblem;
 
-import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,7 +13,6 @@ For example, given [(30, 75), (0, 50), (60, 150)], you should return 2.
 public class DailyProblem_21 {
 
 
-    @Test
     public void test1() {
     	List<Point> list = Arrays.asList(new Point(30,75),new Point(0,50),
                 new Point(0,40),

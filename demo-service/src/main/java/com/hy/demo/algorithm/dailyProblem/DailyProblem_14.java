@@ -1,6 +1,5 @@
 package com.hy.demo.algorithm.dailyProblem;
 
-import org.junit.Test;
 
 import java.math.BigDecimal;
 
@@ -17,7 +16,6 @@ import java.math.BigDecimal;
 public class DailyProblem_14 {
 
 
-    @Test
     public void test1() {
         int num = 100000000;
         double distance = 0;

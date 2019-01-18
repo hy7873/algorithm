@@ -1,7 +1,6 @@
 package com.hy.demo.algorithm.dailyProblem;
 
 import com.hy.demo.util.JacksonUtil;
-import org.junit.Test;
 
 /**
  *
@@ -16,7 +15,6 @@ import org.junit.Test;
 public class DailyProblem_18 {
 
 
-    @Test
     public void test1() {
        int a[] = {10, 5, 2, 7, 8, 7};
        int k = 4;
