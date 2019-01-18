@@ -20,7 +20,7 @@ import com.github.pagehelper.PageHelper;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(locations = { "classpath*:spring/spring-context.xml" ,"classpath*:spring/springmvc-servlet.xml"})
-public class TestServiceTest {
+public class TestService {
 
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
