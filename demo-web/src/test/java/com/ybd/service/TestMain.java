@@ -75,4 +75,19 @@ public class TestMain {
         twoWayLinkedList.display();
     }
 
+    private long fiboFunc(int n) {
+        long[] a = new long[n + 1];
+        a[1] = 1;
+        a[2] = 1;
+        for (int i = 3; i <= n; i++) {
+            a[i] = a[i - 1] + a[i - 2];
+        }
+        return a[n];
+    }
+
+    @Test
+    public void test7() {
+        System.out.println(fiboFunc(80));
+    }
+
 }
