@@ -6,8 +6,10 @@ import com.hy.demo.dataStructure.list.SingleLinkedList;
 import com.hy.demo.dataStructure.list.TwoWayLinkedList;
 import com.hy.demo.dataStructure.node.Node;
 import com.hy.demo.dataStructure.tree.BinarySortTree;
+import com.hy.demo.model.User;
 import com.hy.demo.util.JacksonUtil;
 import com.hy.demo.util.RandomUtil;
+import com.hy.demo.util.UnSafeUtil;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
@@ -188,6 +190,18 @@ public class TestMain {
                 System.out.println("结果 ： " + i + "时间 ：" + (endTime - startTime));
             }
         }
+    }
+
+
+    @Test
+    public void testSafe() throws NoSuchFieldException, IllegalAccessException {
+        User user = new User(2L,"xxx");
+        Object object = UnSafeUtil.getFieldValue(user,"id");
+        System.out.println(object);
+        boolean b = UnSafeUtil.setFieldValue(user,"id",18);
+        System.out.println(b);
+        Object object1 = UnSafeUtil.getFieldValue(user,"id");
+        System.out.println(object1);
     }
 
 }

@@ -14,7 +14,7 @@ public class User implements Serializable{
     private static final long serialVersionUID = -759580475983247539L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected volatile Long id;
 
     private String userCode;
 
@@ -57,6 +57,12 @@ public class User implements Serializable{
     private String city;
     
     private String headimgurl;
+
+
+    public User(Long id,String nickname) {
+        this.id = id;
+        this.nickname = nickname;
+    }
     
 
     public String getHeadimgurl() {
