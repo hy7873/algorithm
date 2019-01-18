@@ -36,7 +36,7 @@
 
 	<filter>
 		<filter-name>cors</filter-name>
-		<filter-class>com.zhongying.demo.web.filter.CORSFilter</filter-class>
+		<filter-class>com.hy.demo.web.filter.CORSFilter</filter-class>
 	</filter>
 
 	<filter-mapping>

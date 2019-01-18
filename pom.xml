@@ -30,9 +30,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- 环境变量 -->
 		<JAVA_ENV>uat</JAVA_ENV>
-		<!-- zhongying old interface -->
+		<hyying old interface -->
 		<zhongying-interface.version>1.0-SNAPSHOT</zhongying-interface.version>
-		<!-- zhongying framework -->
+		<hyying framework -->
 		<framework.version>${JAVA_ENV}-1.0-SNAPSHOT</framework.version>
 		<tx-lcn.version>0.0.1-SNAPSHOT</tx-lcn.version>
 

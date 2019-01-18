@@ -40,7 +40,7 @@
 
 
 		<!-- 生成模型的包名和位置 -->
-		<javaModelGenerator targetPackage="com.ybd.monitor.model"
+		<javaModelGenerator targetPackage="com.hy.monitor.model"
 			targetProject="monitor-interface/src/main/java">
 			<property name="enableSubPackages" value="false"></property>  
             <property name="trimStrings" value="true"></property>  
@@ -48,12 +48,12 @@
             <property name="immutable" value="false" />  
 		</javaModelGenerator>
 		<!-- 生成的映射文件包名和位置:特别注意这里，因为idea必须读取resources下面的文件，除非写maven控件（不建议） -->
-		<sqlMapGenerator targetPackage="com.ybd.monitor.mapper"
+		<sqlMapGenerator targetPackage="com.hy.monitor.mapper"
 			targetProject="monitor-service/src/main/resources">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置 -->
-		<javaClientGenerator targetPackage="com.ybd.monitor.dao"
+		<javaClientGenerator targetPackage="com.hy.monitor.dao"
 			targetProject="monitor-service/src/main/java" type="XMLMAPPER">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>

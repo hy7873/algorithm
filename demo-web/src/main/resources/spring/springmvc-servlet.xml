@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<!-- Scanning the Spring Beans -->
-	<context:component-scan base-package="com.zhongying.demo.web" />
+	<context:component-scan base-package="com.hy.demo.web" />
 	<!-- Enables Annotation -->
 	<context:annotation-config />
 
@@ -53,7 +53,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/tokenApi/testToken" />
-			<bean class="com.zhongying.demo.web.interceptor.TokenInterceptor"></bean>
+			<bean class="com.hy.demo.web.interceptor.TokenInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 

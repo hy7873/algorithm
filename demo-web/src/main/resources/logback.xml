@@ -89,7 +89,7 @@
 	</appender>
 
 
-	<logger name="com.zhongying.demo" level="DEBUG" />
+	<logger name="com.hy.demo" level="DEBUG" />
 	<logger name="io.netty.handler" level="ERROR" />
 	<logger name="io.github.xdiamond" level="ERROR" />
 	<logger name="com.gs.jf" level="DEBUG" />
