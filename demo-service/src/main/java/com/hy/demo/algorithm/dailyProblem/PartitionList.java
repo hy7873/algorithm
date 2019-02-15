@@ -9,6 +9,8 @@ import java.util.List;
  * @Date:2019/2/13 13:50
  * @Copyright:reach-life
  * @Description:
+ * Given a linked list of numbers and a pivot k, partition the linked list so that all nodes less than k come before nodes greater than or equal to k.
+    For example, given the linked list 5 -> 1 -> 8 -> 0 -> 3 and k = 3, the solution could be 1 -> 0 -> 5 -> 8 -> 3.
  */
 public class PartitionList {
 
