@@ -76,11 +76,11 @@
 
 	<dependencies>
 
-		<dependency>
+		<!--<dependency>
 			<groupId>com.hy</groupId>
 			<artifactId>acms</artifactId>
 			<version>1.0.0</version>
-		</dependency>
+		</dependency>-->
 
 		<!-- Test : Junit -->
 		<dependency>

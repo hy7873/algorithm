@@ -43,6 +43,6 @@
 
 
 	<build>
-		<finalName>web</finalName>
+		<finalName>demo-web</finalName>
 	</build>
 </project>

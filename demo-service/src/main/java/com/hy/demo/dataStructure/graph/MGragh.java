@@ -6,7 +6,7 @@ import java.math.BigDecimal;
  * @Author: wanghai
  * @Date:2019/2/14 14:25
  * @Copyright:reach-life
- * @Description:
+ * @Description: 数据结构，图的实现
  */
 public class MGragh {
 
