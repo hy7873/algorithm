@@ -75,8 +75,27 @@ public class SparseNumber {
         return list;
     }
 
+
+    public static int[] getBinaryFromNumberV3(int n) {
+        int[] a = new int[32];
+        boolean flag = false;
+        for (int i = 31; i >= 0 ; i--) {
+            int k = n >>> i & 1;
+            a[i] = k;
+        }
+        System.out.println(a);
+        return a;
+    }
+
+
+
     public static void main(String[] args) {
         //System.out.println(getMinSparseNumber(4));;
+        for (int i = 1; i <= 100; i++) {
+            if (i == (i&(i + 1))) {
+                System.out.println(i);
+            }
+        }
     }
 
 }
