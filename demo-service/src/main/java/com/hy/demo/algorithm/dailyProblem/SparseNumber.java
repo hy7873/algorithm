@@ -1,6 +1,7 @@
 package com.hy.demo.algorithm.dailyProblem;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -22,6 +23,43 @@ public class SparseNumber {
     }
 
     public static boolean isSparseNumber(int n) {
+        List<Integer> list = getBinaryFromNumberV2(n);
+        for (int i = 0; i < list.size() - 1; i++) {
+            if (list.get(i) == list.get( i + 1)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    /**
+     * 十进制转化为二进制
+     * @param n
+     * @return
+     */
+    public static List<Integer> getBinaryFromNumber(int n) {
+        List<Integer> list = new ArrayList<>();
+        while (true) {
+            int k = n % 2;
+            list.add(k);
+            n = n / 2;
+            if (n < 2) {
+                list.add(n);
+                break;
+            }
+        }
+        Collections.reverse(list);
+        System.out.println(list);
+        return list;
+    }
+
+    /**
+     * 十进制转化为二进制
+     * @param n
+     * @return
+     */
+    public static List<Integer> getBinaryFromNumberV2(int n) {
         List<Integer> list = new ArrayList<>();
         boolean flag = false;
         for (int i = 31; i >= 0 ; i--) {
@@ -34,17 +72,11 @@ public class SparseNumber {
             }
         }
         System.out.println(list);
-        for (int i = 0; i < list.size() - 1; i++) {
-            if (list.get(i) == list.get( i + 1)) {
-                return false;
-            }
-        }
-        return true;
+        return list;
     }
 
-
     public static void main(String[] args) {
-        System.out.println(getMinSparseNumber(4));;
+        //System.out.println(getMinSparseNumber(4));;
     }
 
 }
