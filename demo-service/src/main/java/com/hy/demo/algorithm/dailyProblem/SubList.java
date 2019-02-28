@@ -15,13 +15,13 @@ import java.util.List;
  */
 public class SubList {
 
-    public static List<List<Integer>> getSubset(List<Integer> L) {
-        List<List<Integer>> lists = new ArrayList<>();
+    public static <T> List<List<T>> getSubset(List<T> L) {
+        List<List<T>> lists = new ArrayList<>();
         if (L == null || L.size() == 0) {
             return null;
         }
         for (int i = 0; i < Math.pow(2,L.size()); i++) {
-            List<Integer> list = new ArrayList<>();
+            List<T> list = new ArrayList<>();
             int index = i;
             for (int j = 0; j < L.size();j++) {
                 if ((index & 1) == 1){
@@ -29,7 +29,7 @@ public class SubList {
                 }
                 index >>= 1;
             }
-            System.out.println(list);
+            //System.out.println(list);
             lists.add(list);
         }
         return lists;
