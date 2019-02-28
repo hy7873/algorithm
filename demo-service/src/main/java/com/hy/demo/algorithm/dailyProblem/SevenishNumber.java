@@ -23,7 +23,7 @@ public class SevenishNumber {
         if (n == 2) {
             return 7.0;
         }
-       double pow = Math.pow(7,n - 1);
+        double pow;
         List<Double> listPow = new ArrayList<>();
         for (int i = 0; i < n - 1; i++) {
             pow = Math.pow(7,i);
@@ -42,6 +42,7 @@ public class SevenishNumber {
         }
         listSum.addAll(listPow);
         Collections.sort(listSum);
+        System.out.println(new Gson().toJson(listPow));
         System.out.println(new Gson().toJson(listSum));
         return listSum.size() >= n ? listSum.get(n - 1) : 0.0;
     }
