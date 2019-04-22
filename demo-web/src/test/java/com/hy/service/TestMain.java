@@ -2,10 +2,10 @@ package com.hy.service;
 
 import com.hy.demo.algorithm.sort.BubbleSort;
 import com.hy.demo.algorithm.sort.QuickSort;
-import com.hy.demo.dataStructure.list.SingleLinkedList;
-import com.hy.demo.dataStructure.list.TwoWayLinkedList;
-import com.hy.demo.dataStructure.node.Node;
-import com.hy.demo.dataStructure.tree.BinarySortTree;
+import com.hy.demo.data.structure.list.SingleLinkedList;
+import com.hy.demo.data.structure.list.TwoWayLinkedList;
+import com.hy.demo.data.structure.node.Node;
+import com.hy.demo.data.structure.tree.BinarySortTree;
 import com.hy.demo.model.User;
 import com.hy.demo.util.JacksonUtil;
 import com.hy.demo.util.RandomUtil;
