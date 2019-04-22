@@ -11,7 +11,7 @@ import java.util.List;
  * @Author: wanghai
  * @Date:2019/4/22 17:08
  * @Copyright:reach-life
- * @Description:
+ * @Description:贪心法则：海盗船问题
  */
 public class GreedyRule {
 
