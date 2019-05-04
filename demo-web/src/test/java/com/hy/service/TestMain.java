@@ -1,5 +1,6 @@
 package com.hy.service;
 
+import com.google.gson.Gson;
 import com.hy.demo.algorithm.sort.BubbleSort;
 import com.hy.demo.algorithm.sort.QuickSort;
 import com.hy.demo.data.structure.list.SingleLinkedList;
@@ -10,6 +11,7 @@ import com.hy.demo.model.User;
 import com.hy.demo.util.JacksonUtil;
 import com.hy.demo.util.RandomUtil;
 import com.hy.demo.util.UnSafeUtil;
+import com.sun.org.apache.xpath.internal.SourceTree;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
@@ -202,6 +204,24 @@ public class TestMain {
         System.out.println(b);
         Object object1 = UnSafeUtil.getFieldValue(user,"id");
         System.out.println(object1);
+    }
+
+
+    @Test
+    public void test1905041() {
+        System.out.println(Short.SIZE);
+        System.out.println(Integer.SIZE);
+        System.out.println(Long.SIZE);
+        System.out.println(Float.SIZE);
+        System.out.println(Double.SIZE);
+    }
+
+    @Test
+    public void test1905042() {
+        String s1 = "a1";
+        String s2 = "11";
+        //System.out.println(new Gson().toJson(s1.toCharArray()));
+        //System.out.println(new Gson().toJson(s2.getBytes()));
     }
 
 }
