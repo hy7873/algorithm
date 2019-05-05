@@ -1,6 +1,7 @@
 package com.hy.service;
 
 import com.google.gson.Gson;
+import com.hy.demo.algorithm.RadixConvert;
 import com.hy.demo.algorithm.sort.BubbleSort;
 import com.hy.demo.algorithm.sort.QuickSort;
 import com.hy.demo.data.structure.list.SingleLinkedList;
@@ -218,10 +219,12 @@ public class TestMain {
 
     @Test
     public void test1905042() {
-        String s1 = "a1";
-        String s2 = "11";
+        //String s1 = "a1";
+        //String s2 = "11";
         //System.out.println(new Gson().toJson(s1.toCharArray()));
         //System.out.println(new Gson().toJson(s2.getBytes()));
+        String s = RadixConvert.toBinaryString(new Short("1"));
+        System.out.println(s);
     }
 
 }
