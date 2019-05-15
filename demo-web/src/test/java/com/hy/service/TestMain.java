@@ -1,18 +1,15 @@
 package com.hy.service;
 
-import com.google.gson.Gson;
 import com.hy.demo.algorithm.RadixConvert;
 import com.hy.demo.algorithm.sort.BubbleSort;
 import com.hy.demo.algorithm.sort.QuickSort;
 import com.hy.demo.data.structure.list.SingleLinkedList;
 import com.hy.demo.data.structure.list.TwoWayLinkedList;
-import com.hy.demo.data.structure.node.Node;
 import com.hy.demo.data.structure.tree.BinarySortTree;
 import com.hy.demo.model.User;
 import com.hy.demo.util.JacksonUtil;
 import com.hy.demo.util.RandomUtil;
 import com.hy.demo.util.UnSafeUtil;
-import com.sun.org.apache.xpath.internal.SourceTree;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
@@ -223,8 +220,11 @@ public class TestMain {
         //String s2 = "11";
         //System.out.println(new Gson().toJson(s1.toCharArray()));
         //System.out.println(new Gson().toJson(s2.getBytes()));
-        String s = RadixConvert.toBinaryString(new Short("1"));
-        System.out.println(s);
+        //String s = RadixConvert.toBinaryString(new Short("1"));
+        //System.out.println(s);
+        int k = -1 >>> 1;
+        System.out.println(RadixConvert.toBinaryString(-2));
+        System.out.println(RadixConvert.toBinaryString(k));
     }
 
 }
