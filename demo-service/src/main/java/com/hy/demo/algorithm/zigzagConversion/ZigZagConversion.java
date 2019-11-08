@@ -43,7 +43,7 @@ public class ZigZagConversion {
 
     public static void main(String[] args) {
         String s = "LEETCODEISHIRING";
-        System.out.println(conversionStr(s,3));
+        System.out.println(conversionStr(s,4));
     }
 
 }
