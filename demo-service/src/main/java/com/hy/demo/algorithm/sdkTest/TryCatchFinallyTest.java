@@ -18,7 +18,7 @@ public class TryCatchFinallyTest {
             return "ret-catch";
         } finally {
             System.out.println("finally");
-            return "ret-finally";
+            return "ret-finally1";
         }
     }
 
