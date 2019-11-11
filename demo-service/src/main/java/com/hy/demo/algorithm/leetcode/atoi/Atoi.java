@@ -49,6 +49,6 @@ public class Atoi {
         return negative ? -1 * ans : ans;
     }
     public static void main(String[] args) {
-        System.out.println(atio("-91283472332"));
+        System.out.println(atio("+912的地方都"));
     }
 }
