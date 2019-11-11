@@ -1,8 +1,3 @@
 /target/
-/bin/
-.settings
-.project
-.classpath
-/.idea
 *.iml
-commit.sh
+/.idea
