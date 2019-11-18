@@ -7,6 +7,8 @@ import com.google.gson.Gson;
  * @Date:2019/4/3 13:59
  * @Copyright:reach-life
  * @Description:
+ * 20级阶梯，每次可以上1级或者2级，总共有多少种上法
+ *
  */
 public class FiboSequence {
 
