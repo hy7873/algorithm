@@ -1,7 +1,9 @@
 package com.hy.demo.algorithm.leetcode.intToRoman;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author: wanghai
@@ -68,8 +70,29 @@ public class RomanToInt {
         return temp;
     }
 
+
+    public static int romanToIntV2(String roman) {
+        int[] ints = {1,4,5,9,10,40,50,90,100,400,500,900,1000};
+        String[] romanChars = {"I","IV","V","IX","X","XL","L","XC","C","CD","D","CM","M"};
+        int ans = 0;
+        Map<String,Integer> romanIntMap = new HashMap<>();
+        for (int i = 0; i < romanChars.length; i++) {
+            romanIntMap.put(romanChars[i],ints[i]);
+        }
+        for (int i = 0; i < roman.length() ;) {
+            if (i + 1 < roman.length() && romanIntMap.containsKey(roman.substring(i,i + 2))){
+                ans += romanIntMap.get(roman.substring(i,i + 2));
+                i = i + 2;
+            } else {
+                ans += romanIntMap.get(roman.substring(i, i + 1));
+                i++;
+            }
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
-        System.out.println(romanToInt("LVIII"));
+        System.out.println(romanToIntV2("MCMXCIV"));
     }
 
 }
