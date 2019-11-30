@@ -1,0 +1,32 @@
+给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。
+
+给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+
+
+
+示例:
+
+输入："23"
+输出：["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+
+
+方法：回溯
+回溯是一种通过穷举所有可能情况来找到所有解的算法。如果一个候选解最后被发现并不是可行解，回溯算法会舍弃它，并在前面的一些步骤做出一些修改，并重新尝试找到可行解。
+
+给出如下回溯函数 backtrack(combination, next_digits) ，它将一个目前已经产生的组合 combination 和接下来准备要输入的数字 next_digits 作为参数。
+
+如果没有更多的数字需要被输入，那意味着当前的组合已经产生好了。
+如果还有数字需要被输入：
+遍历下一个数字所对应的所有映射的字母。
+将当前的字母添加到组合最后，也就是 combination = combination + letter 。
+重复这个过程，输入剩下的数字： backtrack(combination + letter, next_digits[1:]) 。
+
+作者：LeetCode
+链接：https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/solution/dian-hua-hao-ma-de-zi-mu-zu-he-by-leetcode/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
