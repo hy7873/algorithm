@@ -5,7 +5,7 @@ package com.hy.demo.dataStructure.list;
  */
 public class SingleLinkedList {
 
-    public Node head;
+    public ListNode head;
 
     public int size;
 
@@ -16,7 +16,7 @@ public class SingleLinkedList {
 
     public SingleLinkedList(int[] a) {
         for (int i = 0; i < a.length; i++) {
-          Node newHead = new Node(a[i]);
+          ListNode newHead = new ListNode(a[i]);
           if (size == 0) {
               head = newHead;
           } else {
@@ -28,24 +28,13 @@ public class SingleLinkedList {
     }
 
 
-    private class Node {
-        //节点的数据
-        public Object data;
-        //节点的下一个节点
-        public Node next;
-
-        public Node(Object data) {
-            this.data = data;
-        }
-    }
-
     /**
      * 向头结点添加元素
      * @param data
      * @return
      */
-    public Object addHead(Object data) {
-        Node newHead = new Node(data);
+    public Object addHead(int data) {
+        ListNode newHead = new ListNode(data);
         if (size == 0) {
             head = newHead;
         } else {
@@ -76,17 +65,17 @@ public class SingleLinkedList {
             size--;
             return true;
         }
-        Node preNode = head;
-        Node current = head.next;
+        ListNode preListNode = head;
+        ListNode current = head.next;
         int len = size - n;
         int i = 1;
         while (current != null) {
             if (i == len) {
-                preNode.next = current.next;
+                preListNode.next = current.next;
                 size--;
                 return true;
             }
-            preNode = preNode.next;
+            preListNode = preListNode.next;
             current = current.next;
             i++;
         }
@@ -99,8 +88,8 @@ public class SingleLinkedList {
      * @param data
      * @return
      */
-    public Node findNode(Object data) {
-        Node current = head;
+    public ListNode findNode(Object data) {
+        ListNode current = head;
         int tempSize = size;
         if (tempSize > 0) {
             if (data.equals(current.data)) {
@@ -118,7 +107,7 @@ public class SingleLinkedList {
      * @return
      */
     public boolean isLoopList() {
-        Node slowPoint,fastPoint;
+        ListNode slowPoint,fastPoint;
         slowPoint = fastPoint = head;
         while (fastPoint != null && fastPoint.next != null) {
             slowPoint = slowPoint.next;
@@ -134,18 +123,18 @@ public class SingleLinkedList {
      * 反转链表
      * @return
      */
-    public Node reverseList() {
-        Node reverseHead = null;
-        Node current = head;
-        Node prev = null;
+    public ListNode reverseList() {
+        ListNode reverseHead = null;
+        ListNode current = head;
+        ListNode prev = null;
         while (current != null) {
-            Node nextNode = current.next;
-            if (nextNode == null) {
+            ListNode nextListNode = current.next;
+            if (nextListNode == null) {
                 reverseHead = current;
             }
             current.next = prev;
             prev = current;
-            current = nextNode;
+            current = nextListNode;
         }
         return reverseHead;
     }
@@ -155,20 +144,20 @@ public class SingleLinkedList {
      */
     public void display() {
         if (size > 0) {
-            Node node = head;
+            ListNode listNode = head;
             int tempSize = size;
             if (tempSize == 1) {
-                System.out.print("[" + node.data + "]");
+                System.out.print("[" + listNode.data + "]");
             }
             while (tempSize > 0) {
-                if (node.equals(head)) {
-                    System.out.print("[" + node.data + "->");
-                } else if (node.next == null) {
-                    System.out.print(node.data + "]");
+                if (listNode.equals(head)) {
+                    System.out.print("[" + listNode.data + "->");
+                } else if (listNode.next == null) {
+                    System.out.print(listNode.data + "]");
                 } else {
-                    System.out.print(node.data + "->");
+                    System.out.print(listNode.data + "->");
                 }
-                node = node.next;
+                listNode = listNode.next;
                 tempSize--;
             }
         } else {
