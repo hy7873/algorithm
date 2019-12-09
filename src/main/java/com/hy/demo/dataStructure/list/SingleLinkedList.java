@@ -5,9 +5,9 @@ package com.hy.demo.dataStructure.list;
  */
 public class SingleLinkedList {
 
-    private Node head;
+    public Node head;
 
-    private int size;
+    public int size;
 
     public SingleLinkedList() {
         head = null;
@@ -30,9 +30,9 @@ public class SingleLinkedList {
 
     private class Node {
         //节点的数据
-        private Object data;
+        public Object data;
         //节点的下一个节点
-        private Node next;
+        public Node next;
 
         public Node(Object data) {
             this.data = data;
@@ -65,6 +65,32 @@ public class SingleLinkedList {
         head = head.next;
         size--;
         return data;
+    }
+
+    public boolean removeNthFromEnd(int n) {
+        if (n > size || n < 1) {
+            return false;
+        }
+        if (n == size) {
+            head = head.next;
+            size--;
+            return true;
+        }
+        Node preNode = head;
+        Node current = head.next;
+        int len = size - n;
+        int i = 1;
+        while (current != null) {
+            if (i == len) {
+                preNode.next = current.next;
+                size--;
+                return true;
+            }
+            preNode = preNode.next;
+            current = current.next;
+            i++;
+        }
+        return true;
     }
 
 
