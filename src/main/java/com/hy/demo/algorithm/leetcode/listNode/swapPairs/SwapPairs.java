@@ -1,4 +1,4 @@
-package com.hy.demo.algorithm.leetcode.swapPairs;
+package com.hy.demo.algorithm.leetcode.listNode.swapPairs;
 
 import com.hy.demo.dataStructure.list.ListNode;
 

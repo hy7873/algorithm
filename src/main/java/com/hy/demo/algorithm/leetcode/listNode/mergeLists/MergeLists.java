@@ -1,4 +1,4 @@
-package com.hy.demo.algorithm.leetcode.mergeLists;
+package com.hy.demo.algorithm.leetcode.listNode.mergeLists;
 
 import com.hy.demo.dataStructure.list.ListNode;
 

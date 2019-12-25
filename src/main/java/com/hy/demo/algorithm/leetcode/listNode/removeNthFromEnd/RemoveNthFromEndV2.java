@@ -1,4 +1,4 @@
-package com.hy.demo.algorithm.leetcode.removeNthFromEnd;
+package com.hy.demo.algorithm.leetcode.listNode.removeNthFromEnd;
 
 
 import com.hy.demo.dataStructure.list.SingleLinkedList;
