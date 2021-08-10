@@ -1,5 +1,7 @@
 package com.hy.demo.algorithm.nowcoder.hj15;
 
+import org.junit.Test;
+
 import java.util.Scanner;
 
 /**
@@ -14,16 +16,23 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             int n = sc.nextInt();
-            StringBuilder sb = new StringBuilder();
+            String s = Integer.toBinaryString(n);
+            char[] chars = s.toCharArray();
             int ans = 0;
-            for (int i = 31; i >= 0 ; i--) {
-                int k = n >>> i & 1;
-                if (k == 1) {
+            for (int i = 0; i < chars.length ; i++) {
+                if (chars[i] == '1') {
                     ans++;
                 }
             }
             System.out.println(ans);
         }
+
+
+    }
+
+    @Test
+    public void test() {
+        System.out.println(5>>>2);
     }
 
 }
